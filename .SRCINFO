@@ -1,6 +1,6 @@
 pkgbase = cellframe-node
 	pkgdesc = Cellframe blockchain node with a powerful SDK
-	pkgver = 5.2.531
+	pkgver = 5.3.175
 	pkgrel = 1
 	url = https://cellframe.net
 	install = cellframe-node.install
@@ -19,21 +19,18 @@ pkgbase = cellframe-node
 	conflicts = cellframe-wallet
 	conflicts = cellframe-node-debug
 	options = !debug
-	source = git+https://gitlab.demlabs.net/cellframe/cellframe-node.git#commit=27018546840f8f436dfc5b26656144d1e4516598
-	source = git+https://gitlab.demlabs.net/cellframe/cellframe-sdk.git#commit=12f56f864303e118dbaddb911ec224f1edba6aab
-	source = git+https://gitlab.demlabs.net/dap/dap-sdk.git#commit=884b2f047357e09b321bffb056e4d19c0ea39c3b
-	source = git+https://gitlab.demlabs.net/cellframe/python-cellframe.git#commit=d65ff06a8c08ed1f1352ea8ec13a6af4a707d68f
+	options = !strip
+	source = git+https://gitlab.demlabs.net/cellframe/cellframe-node.git#commit=4cc43c4cea8ab88cdd39c278b3fd10b3db3c4737
 	source = cellframe-node.logrotate
-	source = cellframe-node-logrotate.service
-	source = cellframe-node-logrotate.timer
 	source = cellframe-node.service
-	md5sums = SKIP
-	md5sums = SKIP
-	md5sums = SKIP
+	source = cellframe-node-asan.service
+	source = cellframe-node-tmpfiles.conf
+	source = cellframe-node-sysusers.conf
 	md5sums = SKIP
 	md5sums = 6a52220e0b285dc9e803082f36897ad4
-	md5sums = 7c1087eea7336d99c4af55119673b009
-	md5sums = 47edb0d55d537e72f3de07ec6a72ea78
-	md5sums = 72472d529b38f06a78f37ac659b18d65
+	md5sums = 929cd9330d1e128b3a02beafd6a44fbd
+	md5sums = 494b3aeba5e6099406f668e86e2fc319
+	md5sums = c1f90c4581bebd9b7eb44e1464741370
+	md5sums = ecead745d3492224d2a5a2f7d9d561b0
 
 pkgname = cellframe-node
