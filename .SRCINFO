@@ -10,6 +10,7 @@ pkgbase = cellframe-node
 	makedepends = git
 	makedepends = cmake
 	makedepends = python3
+	makedepends = libxslt
 	depends = logrotate
 	depends = libxcrypt-compat
 	provides = cellframe-node
@@ -20,7 +21,7 @@ pkgbase = cellframe-node
 	conflicts = cellframe-node-debug
 	options = !debug
 	options = !strip
-	source = git+https://gitlab.demlabs.net/cellframe/cellframe-node.git#commit=4cc43c4cea8ab88cdd39c278b3fd10b3db3c4737
+	source = git+https://gitlab.demlabs.net/cellframe/cellframe-node.git#commit=3f141eaf9adfd59fd7c57ea32f8fa9e927853d6f
 	source = cellframe-node.logrotate
 	source = cellframe-node.service
 	source = cellframe-node-asan.service
@@ -28,8 +29,8 @@ pkgbase = cellframe-node
 	source = cellframe-node-sysusers.conf
 	md5sums = SKIP
 	md5sums = 6a52220e0b285dc9e803082f36897ad4
-	md5sums = 929cd9330d1e128b3a02beafd6a44fbd
-	md5sums = 494b3aeba5e6099406f668e86e2fc319
+	md5sums = 4bf9cc7596903ffa5aba7fa7922d9016
+	md5sums = da837da689d3741cae9366eefc86d9b3
 	md5sums = c1f90c4581bebd9b7eb44e1464741370
 	md5sums = ecead745d3492224d2a5a2f7d9d561b0
 
