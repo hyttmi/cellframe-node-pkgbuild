@@ -17,8 +17,8 @@ source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=3f141eaf9ad
 		cellframe-node-sysusers.conf)
 md5sums=('SKIP'
          '6a52220e0b285dc9e803082f36897ad4'
-         '929cd9330d1e128b3a02beafd6a44fbd'
-         '494b3aeba5e6099406f668e86e2fc319'
+         '4bf9cc7596903ffa5aba7fa7922d9016'
+         'da837da689d3741cae9366eefc86d9b3'
          'c1f90c4581bebd9b7eb44e1464741370'
          'ecead745d3492224d2a5a2f7d9d561b0')
 conflicts=(cellframe-dashboard cellframe-wallet cellframe-node-debug)

@@ -6,6 +6,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 WorkingDirectory=/opt/cellframe-node
+ExecStartPre=+/bin/chown -R cellframe:cellframe /opt/cellframe-node
 ExecStart=/opt/cellframe-node/bin/cellframe-node
 ExecStop=/bin/kill -SIGTERM $MAINPID
 Restart=always
