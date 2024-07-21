@@ -6,7 +6,7 @@ pkgdesc="Cellframe blockchain node with a powerful SDK"
 arch=('x86_64' 'aarch64')
 url="https://cellframe.net"
 license=('LGPL3')
-makedepends=(git cmake python3)
+makedepends=(git cmake python3 libxslt)
 depends=(logrotate libxcrypt-compat)
 provides=("cellframe-node" "cellframe-node-cli" "cellframe-node-tool")
 source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=3f141eaf9adfd59fd7c57ea32f8fa9e927853d6f
