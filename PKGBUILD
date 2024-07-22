@@ -19,7 +19,7 @@ md5sums=('SKIP'
          '6a52220e0b285dc9e803082f36897ad4'
          '4bf9cc7596903ffa5aba7fa7922d9016'
          'da837da689d3741cae9366eefc86d9b3'
-         '187a9921e7a9aab457d3894f6fca52f1'
+         '0c7b8ad861f3aac1bce6ffb3a9c15ea1'
          'ecead745d3492224d2a5a2f7d9d561b0')
 options=(!debug !strip)
 install=$pkgname.install
