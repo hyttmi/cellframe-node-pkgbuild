@@ -7,13 +7,13 @@ ${BOLD}NODE CONFIGURATION FILES${NORMAL}
 
     By default, no configuration files are provided. For enabling sane default configuration, run:
 
-    ${BOLD}/opt/cellframe-node/bin/cellframe-node-config -i /opt/cellframe-node/share/default.setup${NORMAL}
+    ${BOLD}cellframe-node-config -i /opt/cellframe-node/share/default.setup${NORMAL}
     
 ${BOLD}STARTING CELLFRAME NODE${NORMAL}
 
     Use the provided systemd unit file and launch node with:
 
-    ${BOLD}sudo systemctl enable --now cellframe-node.service
+    ${BOLD}sudo systemctl enable --now cellframe-node.service${NORMAL}
     
 ${BOLD}RUNNING A MASTERNODE${NORMAL}
 
