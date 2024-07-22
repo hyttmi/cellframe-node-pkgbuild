@@ -8,7 +8,7 @@ url="https://cellframe.net"
 license=('LGPL3')
 makedepends=(git cmake python3 libxslt)
 depends=(logrotate libxcrypt-compat)
-provides=("cellframe-node" "cellframe-node-cli" "cellframe-node-tool")
+provides=("cellframe-node" "cellframe-node-cli" "cellframe-node-tool" "cellframe-node-config")
 source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=3f141eaf9adfd59fd7c57ea32f8fa9e927853d6f
 		cellframe-node.logrotate
 		cellframe-node.service
@@ -19,9 +19,8 @@ md5sums=('SKIP'
          '6a52220e0b285dc9e803082f36897ad4'
          '4bf9cc7596903ffa5aba7fa7922d9016'
          'da837da689d3741cae9366eefc86d9b3'
-         'c1f90c4581bebd9b7eb44e1464741370'
+         '187a9921e7a9aab457d3894f6fca52f1'
          'ecead745d3492224d2a5a2f7d9d561b0')
-conflicts=(cellframe-dashboard cellframe-wallet cellframe-node-debug)
 options=(!debug !strip)
 install=$pkgname.install
 
@@ -63,7 +62,7 @@ package() {
 		install -Dm644 "$srcdir/$pkgname.service" -t "$pkgdir/usr/lib/systemd/system"
 	fi
 
-	for _executables in cellframe-node-cli cellframe-node-tool cellframe-node
+	for _executables in cellframe-node-cli cellframe-node-tool cellframe-node cellframe-node-config
 	do
 		ln -sf "$pkgdir/opt/cellframe-node/bin/$_executables" "$pkgdir/usr/bin/$_executables"
 	done

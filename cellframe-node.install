@@ -7,7 +7,7 @@ ${BOLD}NODE CONFIGURATION FILES${NORMAL}
 
     By default, no configuration files are provided. For enabling sane default configuration, run:
 
-    ${BOLD}sudo -u cellframe /opt/cellframe-node/bin/cellframe-node-config -i /opt/cellframe-node/share/default.setup${NORMAL}
+    ${BOLD}/opt/cellframe-node/bin/cellframe-node-config -i /opt/cellframe-node/share/default.setup${NORMAL}
     
 ${BOLD}STARTING CELLFRAME NODE${NORMAL}
 
