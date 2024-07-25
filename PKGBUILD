@@ -9,7 +9,7 @@ license=('LGPL3')
 makedepends=(git cmake python3 libxslt)
 depends=(logrotate libxcrypt-compat)
 provides=("cellframe-node" "cellframe-node-cli" "cellframe-node-tool" "cellframe-node-config")
-source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=872834b849e4b47abc1da34a80479612ab590138
+source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=dbf7a6ab29348c101c11f88aba68fadc9a645fc6
 		cellframe-node.logrotate
 		cellframe-node.service
 		cellframe-node-asan.service
