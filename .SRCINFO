@@ -19,7 +19,7 @@ pkgbase = cellframe-node
 	provides = cellframe-node-config
 	options = !debug
 	options = !strip
-	source = git+https://gitlab.demlabs.net/cellframe/cellframe-node.git#commit=dbf7a6ab29348c101c11f88aba68fadc9a645fc6
+	source = git+https://gitlab.demlabs.net/cellframe/cellframe-node.git#commit=b51af880bef9052d7255cc149227d341a08f996f
 	source = cellframe-node.logrotate
 	source = cellframe-node.service
 	source = cellframe-node-asan.service
