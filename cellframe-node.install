@@ -1,4 +1,4 @@
-showmsg() {
+_showmsg() {
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 
@@ -11,9 +11,10 @@ ${BOLD}NODE CONFIGURATION FILES${NORMAL}
     
 ${BOLD}STARTING CELLFRAME NODE${NORMAL}
 
-    Use the provided systemd unit file and launch node with:
+    Use the provided systemd unit file and launch node with cellframe-node-config tool:
 
-    ${BOLD}sudo systemctl enable --now cellframe-node.service${NORMAL}
+    ${BOLD}sudo cellframe-node-config -e service enable${NORMAL}
+    ${BOLD}sudo cellframe-node-config -e service start${NORMAL}
     
 ${BOLD}RUNNING A MASTERNODE${NORMAL}
 
@@ -23,6 +24,6 @@ ${BOLD}RUNNING A MASTERNODE${NORMAL}
 }
 
 post_install() {
-    showmsg
+    _showmsg
 }
 
