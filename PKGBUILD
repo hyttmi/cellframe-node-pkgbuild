@@ -10,7 +10,7 @@ makedepends=(git cmake python3 libxslt)
 depends=(logrotate libxcrypt-compat)
 provides=('cellframe-node' 'cellframe-node-cli' 'cellframe-node-tool' 'cellframe-node-config')
 replaces=('cellframe-node-debug')
-source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=6adcf2e2f97f1ab5598a22b8c556d5b52c2bc443
+source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=bdbc629e9c62f83c799c69659389e29a4652b4ef
 		cellframe-node.logrotate
 		cellframe-node.service
 		cellframe-node-asan.service
@@ -67,6 +67,4 @@ package() {
 	do
 		ln -sf "$pkgdir/opt/cellframe-node/bin/$_executables" "$pkgdir/usr/bin/$_executables"
 	done
-
-	chmod -R 777 "$pkgdir/opt/cellframe-node/etc" # Suppress warnings on install
 }
