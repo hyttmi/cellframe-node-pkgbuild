@@ -10,7 +10,7 @@ makedepends=(git cmake python3 libxslt)
 depends=(logrotate libxcrypt-compat)
 provides=('cellframe-node' 'cellframe-node-cli' 'cellframe-node-tool' 'cellframe-node-config')
 replaces=('cellframe-node-debug')
-source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=dbe5f2f8ffde2192266480f846cd9e695cd558b2
+source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=932a00a0b57e6333bc0c66f1dbd1f005595a5748
 		cellframe-node.logrotate
 		cellframe-node.service
 		cellframe-node-asan.service
@@ -48,7 +48,6 @@ build() {
 
 	cmake -B build \
 		-DCMAKE_BUILD_TYPE=$BUILD_TYPE \
-		-DCMAKE_C_FLAGS="-fpermissive" \
         -Wno-dev && \
 	cmake --build build -j$(nproc)
 }
