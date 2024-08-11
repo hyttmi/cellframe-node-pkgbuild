@@ -49,7 +49,7 @@ build() {
 	cmake -B build \
 		-DCMAKE_BUILD_TYPE=$BUILD_TYPE \
         -Wno-dev && \
-	cmake --build build -j$(nproc)
+	cmake --build build --clean-first
 }
 
 package() {
