@@ -10,7 +10,7 @@ makedepends=(git cmake python3 libxslt)
 depends=(logrotate libxcrypt-compat)
 provides=('cellframe-node' 'cellframe-node-cli' 'cellframe-node-tool' 'cellframe-node-config')
 replaces=('cellframe-node-debug')
-source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=b7eb85dc998035dcc4b2aa88e198aa0dbe8d6cf1
+source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=6085ba236db3a3117cf902972a88a481e40f13de
 		cellframe-node.logrotate
 		cellframe-node.service
 		cellframe-node-asan.service
