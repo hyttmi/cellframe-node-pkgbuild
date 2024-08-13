@@ -1,6 +1,6 @@
 # Maintainer: Mika Hyttinen <mika dot hyttinen+arch ät gmail dot com>
 pkgname=cellframe-node
-pkgver=5.3.253
+pkgver=5.3.254
 pkgrel=1
 pkgdesc='Cellframe blockchain node with a powerful SDK'
 arch=('x86_64' 'aarch64')
@@ -10,7 +10,7 @@ makedepends=(git cmake python3 libxslt)
 depends=(logrotate libxcrypt-compat)
 provides=('cellframe-node' 'cellframe-node-cli' 'cellframe-node-tool' 'cellframe-node-config')
 replaces=('cellframe-node-debug')
-source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=8d67421603054231bdfe26b34443e4136bafe5a9
+source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=c4056d26b00a6fd8509aee66887bd0f7ca291089
 		cellframe-node.logrotate
 		cellframe-node.service
 		cellframe-node-asan.service
@@ -29,9 +29,9 @@ prepare() {
 	sed -i 's|url = \.\./\.\./|url = https://gitlab.demlabs.net/|g' "$srcdir/$pkgname/.gitmodules"
 	sed -i 's|url = \.\./|url = https://gitlab.demlabs.net/cellframe/|g' "$srcdir/$pkgname/.gitmodules"
 	cd "$pkgname" && git submodule update --init --recursive --progress
-	VERSION_MAJOR=$(echo "$pkgver" | cut -d'.' -f1)
-	VERSION_MINOR=$(echo "$pkgver" | cut -d'.' -f2)
-	VERSION_PATCH=$(echo "$pkgver" | cut -d'.' -f3)
+	VERSION_MAJOR=$(echo "$pkgver" | cut -d '.' -f1)
+	VERSION_MINOR=$(echo "$pkgver" | cut -d '.' -f2)
+	VERSION_PATCH=$(echo "$pkgver" | cut -d '.' -f3)
 	sed -i "s/^VERSION_MAJOR=.*/VERSION_MAJOR=$VERSION_MAJOR/" "$srcdir/$pkgname/version.mk"
 	sed -i "s/^VERSION_MINOR=.*/VERSION_MINOR=$VERSION_MINOR/" "$srcdir/$pkgname/version.mk"
 	sed -i "s/^VERSION_PATCH=.*/VERSION_PATCH=$VERSION_PATCH/" "$srcdir/$pkgname/version.mk"
@@ -54,7 +54,6 @@ build() {
 
 	cmake -B build \
 		-DCMAKE_BUILD_TYPE=$BUILD_TYPE \
-		-DCMAKE_C_FLAGS="-fpermissive" \
         -Wno-dev && \
 	cmake --build build --clean-first
 }
