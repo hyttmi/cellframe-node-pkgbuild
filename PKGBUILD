@@ -1,6 +1,6 @@
 # Maintainer: Mika Hyttinen <mika dot hyttinen+arch ät gmail dot com>
 pkgname=cellframe-node
-pkgver=5.3.259
+pkgver=5.3.261
 pkgrel=1
 pkgdesc='Cellframe blockchain node with a powerful SDK'
 arch=('x86_64' 'aarch64')
@@ -10,7 +10,7 @@ makedepends=(git cmake python3 libxslt)
 depends=(logrotate libxcrypt-compat)
 provides=('cellframe-node' 'cellframe-node-cli' 'cellframe-node-tool' 'cellframe-node-config')
 replaces=('cellframe-node-debug')
-source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=753fef62a527f617e0ebeabdf616fc6582f64d37
+source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=71a9d45292996ea786c9520854df773af3911155
 		cellframe-node.logrotate
 		cellframe-node.service
 		cellframe-node-asan.service
@@ -38,6 +38,7 @@ prepare() {
 }
 
 build() {
+
 	if [ -n "$DAP_BUILD_DEBUG" ] && [ -n "$DAP_ASAN" ]; then
 		cp "$srcdir/$pkgname-asan.service" "$srcdir/$pkgname/dist.linux/share/$pkgname.service"
 	else
@@ -53,9 +54,14 @@ build() {
     fi
 
 	cmake -B build \
-		-DCMAKE_BUILD_TYPE=$BUILD_TYPE \
-		-DCMAKE_C_FLAGS="-fpermissive" \
-        -Wno-dev && \
+    -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+    -DCMAKE_C_FLAGS="-fpermissive" \
+    -Wno-dev
+
+	if [ -n "$XKCP_USE_REFERENCE" ]; then
+	    cmake -B build -DDAP_CRYPTO_XKCP_REFERENCE=ON
+	fi
+
 	cmake --build build --clean-first
 }
 
