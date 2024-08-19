@@ -1,6 +1,6 @@
 # Maintainer: Mika Hyttinen <mika dot hyttinen+arch ät gmail dot com>
 pkgname=cellframe-node
-pkgver=5.3.262
+pkgver=5.3.263
 pkgrel=1
 pkgdesc='Cellframe blockchain node with a powerful SDK'
 arch=('x86_64' 'aarch64')
@@ -10,7 +10,7 @@ makedepends=(git cmake python3 libxslt)
 depends=(logrotate libxcrypt-compat)
 provides=('cellframe-node' 'cellframe-node-cli' 'cellframe-node-tool' 'cellframe-node-config')
 replaces=('cellframe-node-debug')
-source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=dd51fbc8e9c731ec569ee46498432915493fa61d
+source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=4a354b8085b50f7169cde43ae6c9d473b64b7cfa
 		cellframe-node.logrotate
 		cellframe-node.service
 		cellframe-node-asan.service
@@ -58,8 +58,8 @@ build() {
     -DCMAKE_C_FLAGS="-fpermissive" \
     -Wno-dev
 
-	if [ -n "$XKCP_USE_REFERENCE" ]; then
-	    cmake -B build -DDAP_CRYPTO_XKCP_REFERENCE=ON
+	if [ -n "$CELLFRAME_NO_OPTIMIZATION" ]; then
+	    cmake -B build -DCELLFRAME_NO_OPTIMIZATION=ON
 	fi
 
 	cmake --build build --clean-first

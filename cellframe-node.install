@@ -26,4 +26,3 @@ ${BOLD}RUNNING A MASTERNODE${NORMAL}
 post_install() {
     _showmsg
 }
-
