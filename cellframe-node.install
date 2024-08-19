@@ -26,3 +26,15 @@ ${BOLD}RUNNING A MASTERNODE${NORMAL}
 post_install() {
     _showmsg
 }
+
+post_upgrade() {
+    systemctl daemon-reload
+    systemctl is-active --quiet cellframe-node.service && systemctl restart cellframe-node.service
+}
+
+pre_remove() {
+    systemctl is-active --quiet cellframe-node.service \
+    && systemctl stop cellframe-node.service \
+    && systemctl disable cellframe-node.service
+    systemctl daemon-reload
+}
