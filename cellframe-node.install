@@ -5,16 +5,16 @@ NORMAL=$(tput sgr0)
 echo -e "
 ${BOLD}NODE CONFIGURATION FILES${NORMAL}
 
-    By default, no configuration files are provided. For enabling sane default configuration, run:
+    By default, no configuration files are provided. For enabling sane default configuration, run (as root):
 
     ${BOLD}cellframe-node-config -i /opt/cellframe-node/share/default.setup${NORMAL}
     
 ${BOLD}STARTING CELLFRAME NODE${NORMAL}
 
-    Use the provided systemd unit file and launch node with cellframe-node-config tool:
+    Use the provided systemd unit file and launch node with cellframe-node-config tool (as root):
 
-    ${BOLD}sudo cellframe-node-config -e service enable${NORMAL}
-    ${BOLD}sudo cellframe-node-config -e service start${NORMAL}
+    ${BOLD}cellframe-node-config -e service enable${NORMAL}
+    ${BOLD}cellframe-node-config -e service start${NORMAL}
     
 ${BOLD}RUNNING A MASTERNODE${NORMAL}
 
