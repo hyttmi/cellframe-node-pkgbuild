@@ -1,7 +1,7 @@
 # Maintainer: Mika Hyttinen <mika dot hyttinen+arch ät gmail dot com>
 pkgname=cellframe-node
 pkgver=5.3.270
-pkgrel=1
+pkgrel=2
 pkgdesc='Cellframe blockchain node with a powerful SDK'
 arch=('x86_64' 'aarch64')
 url='https://cellframe.net'
@@ -17,7 +17,7 @@ source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=68b35c4d70b
 		cellframe-node-tmpfiles.conf
 		cellframe-node-sysusers.conf)
 md5sums=('f60fdeaf18dc388c94114aa8c086a537'
-         '6a52220e0b285dc9e803082f36897ad4'
+         'a10650eb138f6fe0c4bbefa6557ffb4f'
          '4bf9cc7596903ffa5aba7fa7922d9016'
          'da837da689d3741cae9366eefc86d9b3'
          'ac930b427a0805dd9c2c1fabe45048fc'

@@ -1,4 +1,5 @@
 "/opt/cellframe-node/var/log/*.log" {
+  su cellframe cellframe
   copytruncate
   minsize 200M
   rotate 6
