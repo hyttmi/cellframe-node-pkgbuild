@@ -28,8 +28,12 @@ post_install() {
 }
 
 post_upgrade() {
+    echo ":: Executing systemctl daemon-reload..."
     systemctl daemon-reload
-    systemctl is-active --quiet cellframe-node.service && systemctl restart cellframe-node.service
+
+    systemctl is-active --quiet cellframe-node.service \
+    && echo ":: Restarting cellframe-node.service..." \
+    && systemctl restart cellframe-node.service
 }
 
 pre_remove() {
