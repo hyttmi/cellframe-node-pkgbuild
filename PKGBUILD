@@ -16,7 +16,7 @@ source=(git+https://gitlab.demlabs.net/cellframe/$pkgname.git#commit=a6d774b6329
 		cellframe-node-asan.service
 		cellframe-node-tmpfiles.conf
 		cellframe-node-sysusers.conf)
-md5sums=('cd41882eb14c6d4d170e51301423bf6f'
+md5sums=('3ca2661c9ad37321c75b5829ec706f64'
          'a10650eb138f6fe0c4bbefa6557ffb4f'
          '4bf9cc7596903ffa5aba7fa7922d9016'
          'da837da689d3741cae9366eefc86d9b3'
