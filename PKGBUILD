@@ -1,7 +1,7 @@
 # Maintainer: Mika Hyttinen <mika dot hyttinen+arch ät gmail dot com>
 pkgname=cellframe-node
 pkgver=5.3.286
-pkgrel=3
+pkgrel=4
 pkgdesc='Cellframe blockchain node with a powerful SDK'
 arch=('x86_64' 'aarch64')
 url='https://cellframe.net'
@@ -22,7 +22,7 @@ md5sums=('SKIP'
          'da837da689d3741cae9366eefc86d9b3'
          'ac930b427a0805dd9c2c1fabe45048fc'
          'ecead745d3492224d2a5a2f7d9d561b0')
-options=(!debug !strip !buildflags !makeflags)
+options=(!debug !strip)
 install=$pkgname.install
 
 prepare() {
@@ -55,6 +55,7 @@ build() {
 
 	cmake -B build \
     -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+	-DCMAKE_C_FLAGS="-Wno-incompatible-pointer-types" \
     -Wno-dev
 
 	if [ -n "$CELLFRAME_NO_OPTIMIZATION" ]; then
