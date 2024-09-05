@@ -1,7 +1,7 @@
 # Maintainer: Mika Hyttinen <mika dot hyttinen+arch ät gmail dot com>
 pkgname=cellframe-node
 pkgver=5.3.286
-pkgrel=5
+pkgrel=6
 pkgdesc='Cellframe blockchain node with a powerful SDK'
 arch=('x86_64' 'aarch64')
 url='https://cellframe.net'
@@ -53,13 +53,16 @@ build() {
         BUILD_TYPE="Release"
     fi
 
-	cmake -B build \
-    -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
-	-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types" \
-    -Wno-dev
-
 	if [ -n "$CELLFRAME_NO_OPTIMIZATION" ]; then
-	    cmake -B build -DCELLFRAME_NO_OPTIMIZATION=ON
+		cmake -B build \
+		-DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+		-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types -march=core2" \
+		-Wno-dev
+	else
+		cmake -B build \
+    	-DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+		-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types" \
+    	-Wno-dev
 	fi
 
 	cmake --build build --clean-first
