@@ -1,7 +1,7 @@
 # Maintainer: Mika Hyttinen <mika dot hyttinen+arch ät gmail dot com>
 pkgname=cellframe-node
 pkgver=5.3.286
-pkgrel=9
+pkgrel=10
 pkgdesc='Cellframe blockchain node with a powerful SDK'
 arch=('x86_64' 'aarch64')
 url='https://cellframe.net'
@@ -22,7 +22,7 @@ md5sums=('SKIP'
 	'da837da689d3741cae9366eefc86d9b3'
 	'ac930b427a0805dd9c2c1fabe45048fc'
 	'ecead745d3492224d2a5a2f7d9d561b0')
-options=(!debug !strip)
+options=(!debug !strip !buildflags !makeflags)
 install=$pkgname.install
 
 prepare() {
@@ -54,7 +54,7 @@ build() {
 
 	if [ -n "$CELLFRAME_NO_OPTIMIZATION" ]; then
 		if [ -n "$CELLFRAME_ASAN" ]; then
-			echo ":: Building with Address Sanitizer (ASAN) and additional sanitizers enabled, without optimization..."
+			echo ":: Building with Address Sanitizer (ASAN) enabled, without optimization..."
 			cmake -B build \
 				-DDAP_CRYPTO_XKCP_PLAINC=ON \
 				-DCMAKE_BUILD_TYPE=Debug \
@@ -70,7 +70,7 @@ build() {
 				-Wno-dev
 		fi
 	elif [ -n "$CELLFRAME_ASAN" ]; then
-		echo ":: Building with Address Sanitizer (ASAN) and additional sanitizers enabled..."
+		echo ":: Building with Address Sanitizer (ASAN) enabled..."
 		cmake -B build \
 			-DCMAKE_BUILD_TYPE=Debug \
 			-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types -fsanitize=address -fsanitize-address-use-after-scope -fno-omit-frame-pointer -fno-common -O1" \
