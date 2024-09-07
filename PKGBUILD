@@ -1,7 +1,7 @@
 # Maintainer: Mika Hyttinen <mika dot hyttinen+arch ät gmail dot com>
 pkgname=cellframe-node
 pkgver=5.3.286
-pkgrel=8
+pkgrel=9
 pkgdesc='Cellframe blockchain node with a powerful SDK'
 arch=('x86_64' 'aarch64')
 url='https://cellframe.net'
@@ -58,8 +58,8 @@ build() {
 			cmake -B build \
 				-DDAP_CRYPTO_XKCP_PLAINC=ON \
 				-DCMAKE_BUILD_TYPE=Debug \
-				-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types -fsanitize=address,undefined,leak -fno-omit-frame-pointer -O1" \
-				-DCMAKE_LINKER_FLAGS="-fsanitize=address,undefined,leak -fno-omit-frame-pointer" \
+				-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types -fsanitize=address -fsanitize-address-use-after-scope -fno-omit-frame-pointer -fno-common -O1" \
+				-DCMAKE_LINKER_FLAGS="-fsanitize=address" \
 				-Wno-dev
 		else
 			echo ":: Building without optimization..."
@@ -73,8 +73,8 @@ build() {
 		echo ":: Building with Address Sanitizer (ASAN) and additional sanitizers enabled..."
 		cmake -B build \
 			-DCMAKE_BUILD_TYPE=Debug \
-			-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types -fsanitize=address,undefined,leak -fno-omit-frame-pointer -O1" \
-			-DCMAKE_LINKER_FLAGS="-fsanitize=address,undefined,leak -fno-omit-frame-pointer" \
+			-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types -fsanitize=address -fsanitize-address-use-after-scope -fno-omit-frame-pointer -fno-common -O1" \
+			-DCMAKE_LINKER_FLAGS="-fsanitize=address" \
 			-Wno-dev
 	else
 		echo ":: Building with normal optimization..."
