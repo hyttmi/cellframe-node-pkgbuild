@@ -1,7 +1,7 @@
 # Maintainer: Mika Hyttinen <mika dot hyttinen+arch ät gmail dot com>
 pkgname=cellframe-node
 pkgver=5.3.292
-pkgrel=1
+pkgrel=2
 pkgdesc='Cellframe blockchain node with a powerful SDK'
 arch=('x86_64' 'aarch64')
 url='https://cellframe.net'
@@ -67,6 +67,7 @@ build() {
 				-DDAP_CRYPTO_XKCP_PLAINC=ON \
 				-DCMAKE_BUILD_TYPE=$BUILD_TYPE \
 				-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types" \
+				-DCELLFRAME_NO_OPTIMIZATION=OFF
 				-Wno-dev
 		fi
 	elif [ -n "$CELLFRAME_ASAN" ]; then
@@ -75,12 +76,14 @@ build() {
 			-DCMAKE_BUILD_TYPE=Debug \
 			-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types -fsanitize=address -fsanitize-address-use-after-scope -fno-omit-frame-pointer -fno-common -O1" \
 			-DCMAKE_LINKER_FLAGS="-fsanitize=address" \
+			-DCELLFRAME_NO_OPTIMIZATION=OFF
 			-Wno-dev
 	else
 		echo ":: Building with normal optimization..."
 		cmake -B build \
 			-DCMAKE_BUILD_TYPE=$BUILD_TYPE \
 			-DCMAKE_C_FLAGS="-Wno-error=incompatible-pointer-types" \
+			-DCELLFRAME_NO_OPTIMIZATION=OFF
 			-Wno-dev
 	fi
 
